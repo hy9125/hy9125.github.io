@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="About," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="I’m a rookie">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="整理一下，关于LINUX配置方面不断更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写点零碎的东西">
+<meta property="og:url" content="http://yoursite.com/2016/07/04/lingsui/index.html">
 <meta property="og:site_name" content="Edward's blog">
-<meta property="og:description" content="I’m a rookie">
-<meta property="og:updated_time" content="2016-06-24T08:19:20.614Z">
+<meta property="og:description" content="整理一下，关于LINUX配置方面不断更新">
+<meta property="og:updated_time" content="2016-07-04T01:02:30.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="I’m a rookie">
+<meta name="twitter:title" content="写点零碎的东西">
+<meta name="twitter:description" content="整理一下，关于LINUX配置方面不断更新">
 
 
 
@@ -114,15 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/04/lingsui/"/>
 
-  <title>
-  
-
-  
-    about | Edward's blog
-  
-</title>
+  <title> 写点零碎的东西 | Edward's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -243,10 +237,135 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <p>I’m a rookie</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                写点零碎的东西
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-04T08:47:21+08:00" content="2016-07-04">
+              2016-07-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="整理一下，关于LINUX配置方面"><a href="#整理一下，关于LINUX配置方面" class="headerlink" title="整理一下，关于LINUX配置方面"></a>整理一下，关于LINUX配置方面</h2><p>不断更新<br><a id="more"></a><br>java,ip</p>
+<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><ul>
+<li>解压JAVA<ul>
+<li>tar -zxvf *.gz</li>
+</ul>
+</li>
+<li><p>配置环境变量</p>
+<ul>
+<li>1.修改/etc/profile文件<br> 末尾加入：<br> export JAVA_HOME=/usr/share/jdk1.8.0_91<br> export PATH=$JAVA_HOME/bin:$PATH<br> export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar<br> ·重新登录<br> ·注解<br>  a. 你要将 /usr/share/jdk1.8.0_91改为你的jdk安装目录<br>  b. linux下用冒号“:”来分隔路径<br>  c. $PATH / $CLASSPATH / $JAVA_HOME 是用来引用原来的环境变量的值<br>   在设置环境变量时特别要注意不能把原来的值给覆盖掉了，这是一种常见的错误。<br>  d. CLASSPATH中当前目录“.”不能丢,把当前目录丢掉也是常见的错误。<br>  e. export是把这三个变量导出为全局变量。<br>  f. 大小写必须严格区分。</li>
+<li><p>2.修改.bash_profile文件</p>
+<p> 这种方法更为安全，它可以把使用这些环境变量的权限控制到用户级别，<br> 如果你需要给某个用户权限使用这些环境变量，你只需要修改其个人用户主目录下的.bash_profile文件就可以了。<br> ·用文本编辑器打开用户目录下的.bash_profile文件<br> ·在.bash_profile文件末尾加入：</p>
+<p> export JAVA_HOME=/usr/share/jdk1.6.0_14<br> export PATH=$JAVA_HOME/bin:$PATH<br> export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
+<p>·重新登录  </p>
+</li>
+</ul>
+</li>
+<li>卸载JDK<br>·找到jdk安装目录的_uninst子目录<br>·在shell终端执行命令./uninstall.sh即可卸载jdk。<h2 id="有问题反馈"><a href="#有问题反馈" class="headerlink" title="有问题反馈"></a>有问题反馈</h2>在使用中有任何问题，欢迎反馈给我</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/About/" rel="tag">#About</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/24/Scrapy/" rel="next" title="Scrapy">
+                <i class="fa fa-chevron-left"></i> Scrapy
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -278,8 +397,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avater.png"
@@ -336,6 +464,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整理一下，关于LINUX配置方面"><span class="nav-number">1.</span> <span class="nav-text">整理一下，关于LINUX配置方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-number">2.</span> <span class="nav-text">java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有问题反馈"><span class="nav-number">3.</span> <span class="nav-text">有问题反馈</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -439,6 +578,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
