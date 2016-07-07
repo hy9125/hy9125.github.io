@@ -93,7 +93,7 @@
 <meta property="og:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
 向度娘和必应致敬！">
 <meta property="og:image" content="http://yoursite.com/images/4.png">
-<meta property="og:updated_time" content="2016-07-07T03:07:04.657Z">
+<meta property="og:updated_time" content="2016-07-07T03:09:02.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HADOOP配置">
 <meta name="twitter:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
@@ -345,7 +345,7 @@
 <li><p>ssh node1 输入用户名密码，然后退出，再次ssh node1不用密码，直接进入系统。这就表示成功了。</p>
 </li>
 </ul>
-<h2 id="上传HADOOP，解压"><a href="#上传HADOOP，解压" class="headerlink" title="上传HADOOP，解压"></a>上传HADOOP，解压</h2><ul>
+<h2 id="上传HADOOP并配置"><a href="#上传HADOOP并配置" class="headerlink" title="上传HADOOP并配置"></a>上传HADOOP并配置</h2><ul>
 <li>解压：  <ul>
 <li>这一步基本没啥问题，记住解压路径<br>例如现在解压到/opt/software/下<br>然后修改文件夹名，此时HADDOP就在/opt/software/hadoop里了</li>
 </ul>
@@ -383,9 +383,10 @@
 </ul>
 <p>上面的hadoop-env.sh，core-site.xml，mapred-site.xml，hdfs-site.xml，master，slave几个文件，在四台linux中都是一样的。<br>配置完一台电脑后，可以将hadoop包，直接拷贝到其他电脑上。  </p>
 <ul>
-<li><p>最后要记得，将hadoop的用户加进去(如果使用的是HADOOP这个用户)，命令为  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R hadoop:hadoop hadoop </span><br><span class="line">sudo chown -R 用户名@用户组 目录名</span><br></pre></td></tr></table></figure>
+<li>最后要记得，将hadoop的用户加进去(如果使用的是HADOOP这个用户)，命令为  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R hadoop:hadoop hadoop </span><br><span class="line">sudo chown -R 用户名@用户组 目录名</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<h2 id="启动HADOOP"><a href="#启动HADOOP" class="headerlink" title="启动HADOOP"></a>启动HADOOP</h2><ul>
 <li><p>让hadoop配置生效</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> hadoop-env.sh</span><br></pre></td></tr></table></figure>
 </li>
@@ -396,7 +397,7 @@
 </li>
 <li>查看进程，是否启动<br>  jps</li>
 </ul>
-<p>##有问题反馈<br>在使用中有任何问题，欢迎反馈给我</p>
+<h2 id="有问题反馈"><a href="#有问题反馈" class="headerlink" title="有问题反馈"></a>有问题反馈</h2><p>在使用中有任何问题，欢迎反馈给我</p>
 
       
     </div>
@@ -554,7 +555,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置HADOOP环境（完全分布式）"><span class="nav-number">1.</span> <span class="nav-text">配置HADOOP环境（完全分布式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固定IP"><span class="nav-number">2.</span> <span class="nav-text">固定IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置SSH"><span class="nav-number">3.</span> <span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-etc-hosts文件"><span class="nav-number">4.</span> <span class="nav-text">修改/etc/hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现SSH免密钥登陆"><span class="nav-number">5.</span> <span class="nav-text">实现SSH免密钥登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传HADOOP，解压"><span class="nav-number">6.</span> <span class="nav-text">上传HADOOP，解压</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置HADOOP环境（完全分布式）"><span class="nav-number">1.</span> <span class="nav-text">配置HADOOP环境（完全分布式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固定IP"><span class="nav-number">2.</span> <span class="nav-text">固定IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置SSH"><span class="nav-number">3.</span> <span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-etc-hosts文件"><span class="nav-number">4.</span> <span class="nav-text">修改/etc/hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现SSH免密钥登陆"><span class="nav-number">5.</span> <span class="nav-text">实现SSH免密钥登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传HADOOP并配置"><span class="nav-number">6.</span> <span class="nav-text">上传HADOOP并配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动HADOOP"><span class="nav-number">7.</span> <span class="nav-text">启动HADOOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有问题反馈"><span class="nav-number">8.</span> <span class="nav-text">有问题反馈</span></a></li></ol></div>
             
           </div>
         </section>
