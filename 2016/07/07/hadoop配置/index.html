@@ -92,13 +92,13 @@
 <meta property="og:site_name" content="Edward's blog">
 <meta property="og:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
 向度娘和必应致敬！">
-<meta property="og:image" content="http://yoursite.com/images/hadoop.png">
-<meta property="og:updated_time" content="2016-07-07T02:24:43.234Z">
+<meta property="og:image" content="http://yoursite.com/images/4.png">
+<meta property="og:updated_time" content="2016-07-07T02:35:30.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HADOOP配置">
 <meta name="twitter:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
 向度娘和必应致敬！">
-<meta name="twitter:image" content="http://yoursite.com/images/hadoop.png">
+<meta name="twitter:image" content="http://yoursite.com/images/4.png">
 
 
 
@@ -301,7 +301,7 @@
       
 
       
-        <p><img src="/images/hadoop.png" alt="mahua"></p>
+        <p><img src="/images/4.png" alt="mahua"></p>
 <h2 id="配置HADOOP环境（完全分布式）"><a href="#配置HADOOP环境（完全分布式）" class="headerlink" title="配置HADOOP环境（完全分布式）"></a>配置HADOOP环境（完全分布式）</h2><p>在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）</p>
 <p>向度娘和必应致敬！<br><a id="more"></a></p>
 <h2 id="固定IP"><a href="#固定IP" class="headerlink" title="固定IP"></a>固定IP</h2><ul>
@@ -321,7 +321,6 @@
 </li>
 <li>客户端用PUTTY实现SSH登陆，使用WINSCP传送文件</li>
 </ul>
-<p>两个命令同时运行，运行完成后查看防火墙关闭状态<br>service iptables status</p>
 <h2 id="修改-etc-hosts文件"><a href="#修改-etc-hosts文件" class="headerlink" title="修改/etc/hosts文件"></a>修改/etc/hosts文件</h2><ul>
 <li><p>修改每台电脑的hosts文件。</p>
 <p>  hosts文件和windows上的功能是一样的。存储主机名和ip地址的映射。</p>
@@ -336,25 +335,15 @@
 </li>
 </ul>
 <p>一路按回车就行了。</p>
-<p>刚才都干啥呢？主要是设置ssh的密钥和密钥的存放路径。 路径为~/.ssh下。<br>打开~/.ssh 下面有三个文件</p>
-<pre><code>authorized_keys，已认证的keys
-
-id_rsa，私钥
-
-id_rsa.pub，公钥   三个文件。
-</code></pre><p>下面就是关键的地方了，（我们要做ssh认证。进行下面操作前，可以先搜关于认证和加密区别以及各自的过程。）</p>
-<p>   ①在master上将公钥放到authorized_keys里。命令：</p>
-<pre><code>sudo cat id_rsa.pub &gt;&gt; authorized_keys
-</code></pre><p>②将master上的authorized_keys放到其他linux的~/.ssh目录下。(在试验环境中，可以放在ROOT里)</p>
-<pre><code>命令：sudo scp authorized_keys hadoop@192.168.206.22:~/.ssh       
-
-      sudo scp authorized_keys 远程主机用户名@远程主机名或ip:存放路径。
-</code></pre><p>③修改authorized_keys权限，命令：chmod 644 authorized_keys</p>
-<p>④测试是否成功</p>
-<p>ssh node1 输入用户名密码，然后退出，再次ssh node1不用密码，直接进入系统。这就表示成功了。</p>
+<p>刚才都干啥呢？主要是设置ssh的密钥和密钥的存放路径。 路径为~/.ssh下。<br>打开~/.ssh 下面有三个文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">authorized_keys，已认证的keys</span><br><span class="line"></span><br><span class="line">id_rsa，私钥</span><br><span class="line"></span><br><span class="line">id_rsa.pub，公钥   三个文件。</span><br></pre></td></tr></table></figure></p>
+<p>下面就是关键的地方了，（我们要做ssh认证。进行下面操作前，可以先搜关于认证和加密区别以及各自的过程。）<br>    在master上将公钥放到authorized_keys里。命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>将master上的authorized_keys放到其他linux的~/.ssh目录下。(在试验环境中，可以放在ROOT里)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">命令：sudo scp authorized_keys hadoop@192.168.206.22:~/.ssh       </span><br><span class="line"></span><br><span class="line">      sudo scp authorized_keys 远程主机用户名@远程主机名或ip:存放路径。</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>网络配置中心</li>
-<li>修改对应的IPV4属性(以上保持同一子网段)</li>
+<li>修改authorized_keys权限，命令：chmod 644 authorized_keys</li>
+<li><p>测试是否成功</p>
+</li>
+<li><p>ssh node1 输入用户名密码，然后退出，再次ssh node1不用密码，直接进入系统。这就表示成功了。</p>
+</li>
 </ul>
 <h2 id="上传HADOOP，解压"><a href="#上传HADOOP，解压" class="headerlink" title="上传HADOOP，解压"></a>上传HADOOP，解压</h2><ul>
 <li>解压：  <ul>
@@ -372,30 +361,20 @@ id_rsa.pub，公钥   三个文件。
 </li>
 <li><p>修改/opt/software/hadoop/conf下其他配置文件 (在configuration中添加)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo vim core-site.xml</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/usr/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://192.168.166.11:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo vim hhdfs-site.xml</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;2&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.name.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/usr/hadoop/hdfs/name&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.data.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/usr/hadoop/hdfs/data&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim mapred-site.xml</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;192.168.166.11:9001&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim mapred-site.xml</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;192.168.166.11:9001&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
 <p>上面的hadoop-env.sh，core-site.xml，mapred-site.xml，hdfs-site.xml，master，slave几个文件，在四台linux中都是一样的。</p>
 <pre><code>配置完一台电脑后，可以将hadoop包，直接拷贝到其他电脑上。
 
-* 最后要记得，将hadoop的用户加进去(如果使用的是HADOOP这个用户)，命令为
-
-      sudo chown -R hadoop:hadoop hadoop 
-
-      sudo chown -R 用户名@用户组 目录名
-
-* 让hadoop配置生效
-
-      source hadoop-env.sh
-
-* 格式化namenode，只格式一次
-
-      hadoop namenode -format
-
-* 启动hadoop
+* 最后要记得，将hadoop的用户加进去(如果使用的是HADOOP这个用户)，命令为  
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">          sudo chown -R hadoop:hadoop hadoop </span><br><span class="line"></span><br><span class="line">          sudo chown -R 用户名@用户组 目录名</span><br><span class="line">``` </span><br><span class="line">    * 让hadoop配置生效</span><br><span class="line">```bash</span><br><span class="line">          <span class="built_in">source</span> hadoop-env.sh</span><br></pre></td></tr></table></figure>
+<pre><code>* 格式化namenode，只格式一次
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
+<pre><code>* 启动hadoop
 
   切到/opt/software/hadoop/bin目录下，执行 start-all.sh启动所有程序
 
