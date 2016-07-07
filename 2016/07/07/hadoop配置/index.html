@@ -93,7 +93,7 @@
 <meta property="og:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
 向度娘和必应致敬！">
 <meta property="og:image" content="http://yoursite.com/images/4.png">
-<meta property="og:updated_time" content="2016-07-07T02:55:28.623Z">
+<meta property="og:updated_time" content="2016-07-07T02:58:36.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HADOOP配置">
 <meta name="twitter:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
@@ -369,9 +369,8 @@
 <p>mapred-site.xml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim mapred-site.xml</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;192.168.166.11:9001&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
 <p>masters<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.166.11</span><br></pre></td></tr></table></figure></p>
 <p>slaves<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">192.168.166.22</span><br><span class="line">192.168.166.33</span><br></pre></td></tr></table></figure></p>
-<p>上面的hadoop-env.sh，core-site.xml，mapred-site.xml，hdfs-site.xml，master，slave几个文件，在四台linux中都是一样的。</p>
-<pre><code>配置完一台电脑后，可以将hadoop包，直接拷贝到其他电脑上。
-
+<pre><code>* 上面的hadoop-env.sh，core-site.xml，mapred-site.xml，hdfs-site.xml，master，slave几个文件，在四台linux中都是一样的。
+* 配置完一台电脑后，可以将hadoop包，直接拷贝到其他电脑上。  
 * 最后要记得，将hadoop的用户加进去(如果使用的是HADOOP这个用户)，命令为  
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R hadoop:hadoop hadoop </span><br><span class="line"></span><br><span class="line">sudo chown -R 用户名@用户组 目录名</span><br></pre></td></tr></table></figure>
 <pre><code>* 让hadoop配置生效
@@ -379,11 +378,8 @@
 <pre><code>* 格式化namenode，只格式一次
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
 <pre><code>* 启动hadoop
-
 切到/opt/software/hadoop/bin目录下，执行 start-all.sh启动所有程序
-
 * 查看进程，是否启动
-
 jps
 </code></pre><p>##有问题反馈<br>在使用中有任何问题，欢迎反馈给我</p>
 
