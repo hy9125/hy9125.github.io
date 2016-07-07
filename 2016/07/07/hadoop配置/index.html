@@ -93,7 +93,7 @@
 <meta property="og:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
 向度娘和必应致敬！">
 <meta property="og:image" content="http://yoursite.com/images/4.png">
-<meta property="og:updated_time" content="2016-07-07T03:04:30.916Z">
+<meta property="og:updated_time" content="2016-07-07T03:06:02.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HADOOP配置">
 <meta name="twitter:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（4台虚拟机，配置好IP，配置好JAVA）
@@ -359,13 +359,19 @@
 <li><p>修改/opt/software/hadoop/conf下配置文件  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim hadoop-env.sh</span><br><span class="line">将 <span class="built_in">export</span> java_home前的注释去掉，并且修改为正确的JAVA路径</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改/opt/software/hadoop/conf下其他配置文件 (在configuration中添加)<br>core-site.xml  </p>
+<li><p>修改/opt/software/hadoop/conf下其他配置文件 (在configuration中添加)</p>
+<ul>
+<li><p>core-site.xml  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo vim core-site.xml</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;/usr/hadoop/tmp&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;hdfs://192.168.166.11:9000&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>hhdfs-site.xml  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo vim hhdfs-site.xml</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;2&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;dfs.name.dir&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;/usr/hadoop/hdfs/name&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;dfs.data.dir&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;/usr/hadoop/hdfs/data&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<p>hhdfs-site.xml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo vim hhdfs-site.xml</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;2&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;dfs.name.dir&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;/usr/hadoop/hdfs/name&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">            &lt;name&gt;dfs.data.dir&lt;/name&gt;</span><br><span class="line">            &lt;value&gt;/usr/hadoop/hdfs/data&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
 <p>mapred-site.xml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim mapred-site.xml</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;192.168.166.11:9001&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
 <p>masters<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.166.11</span><br></pre></td></tr></table></figure></p>
 <p>slaves<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">192.168.166.22</span><br><span class="line">192.168.166.33</span><br></pre></td></tr></table></figure></p>
