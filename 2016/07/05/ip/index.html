@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Edward's blog">
 <meta property="og:description" content="虚拟机组成的局域网作为一个穷逼，还是找个免费的方法搭建一个局域网好了
 向度娘和必应致敬！">
-<meta property="og:updated_time" content="2016-07-05T02:31:29.364Z">
+<meta property="og:updated_time" content="2016-07-17T10:07:16.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IP地址及局域网设置">
 <meta name="twitter:description" content="虚拟机组成的局域网作为一个穷逼，还是找个免费的方法搭建一个局域网好了
@@ -306,11 +306,12 @@
 <pre><code class="bash">$ vi /etc/sysconfig/network-scripts/ifcfg-eth0
 </code></pre>
 <ul>
-<li>将IPADDER后面改成IP地址。注意地址段.<br> 例如 192.168.166.1 地址段为166</li>
+<li>将IPADDR后面改成IP地址。注意地址段.<br> 例如 192.168.166.1 地址段为166</li>
 </ul>
 <ul>
 <li>子网掩码（NETMASK=255.255.255.0）  </li>
-<li>将ONBOOT后面改为yes(onboot=yes) –开机自启动 </li>
+<li>将ONBOOT后面改为yes(onboot=yes) –开机自启动   </li>
+<li>bootproto=none</li>
 <li>网关(不上网可以不设置)<br>GATEWAY=192.168.166.2  </li>
 </ul>
 </li>
