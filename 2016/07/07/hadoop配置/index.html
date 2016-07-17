@@ -93,7 +93,7 @@
 <meta property="og:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（3台虚拟机，配置好IP，配置好JAVA）
 向度娘和必应致敬！">
 <meta property="og:image" content="http://yoursite.com/images/4.png">
-<meta property="og:updated_time" content="2016-07-07T03:10:09.397Z">
+<meta property="og:updated_time" content="2016-07-17T12:28:49.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HADOOP配置">
 <meta name="twitter:description" content="配置HADOOP环境（完全分布式）在此之前应该干的事（3台虚拟机，配置好IP，配置好JAVA）
@@ -329,7 +329,8 @@
 </li>
 </ul>
 <h2 id="实现SSH免密钥登陆"><a href="#实现SSH免密钥登陆" class="headerlink" title="实现SSH免密钥登陆"></a>实现SSH免密钥登陆</h2><ul>
-<li><p>无密码登陆，效果也就是在naster上，通过 ssh node1 或 ssh node2 就可以登陆到对方计算机上。而且不用输入密码。</p>
+<li>无密码登陆，效果也就是在naster上，通过 ssh node1 或 ssh node2 就可以登陆到对方计算机上。而且不用输入密码。  </li>
+<li><p>CentOS默认没有启动ssh无密登录，去掉/etc/ssh/sshd_config其中2行的注释，每台服务器都要设置，<br>#RSAAuthentication yes<br>#PubkeyAuthentication yes  </p>
 <p>  四台虚拟机上，使用 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 </li>
