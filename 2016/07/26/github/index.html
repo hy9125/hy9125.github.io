@@ -92,13 +92,13 @@
 <meta property="og:site_name" content="Edward's blog">
 <meta property="og:description" content="GITGit是目前世界上最先进的分布式版本控制系统（没有之一）。
 随着代码量的越来越多m，相信你会喜欢它">
-<meta property="og:image" content="http://yoursite.com/images/7.png">
-<meta property="og:updated_time" content="2016-07-26T03:35:05.704Z">
+<meta property="og:image" content="http://yoursite.com/images/6.png">
+<meta property="og:updated_time" content="2016-07-27T12:23:09.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GIT安装">
 <meta name="twitter:description" content="GITGit是目前世界上最先进的分布式版本控制系统（没有之一）。
 随着代码量的越来越多m，相信你会喜欢它">
-<meta name="twitter:image" content="http://yoursite.com/images/7.png">
+<meta name="twitter:image" content="http://yoursite.com/images/6.png">
 
 
 
@@ -301,7 +301,7 @@
       
 
       
-        <p><img src="/images/7.png" alt="mahua"></p>
+        <p><img src="/images/6.png" alt="mahua"></p>
 <h2 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h2><p>Git是目前世界上最先进的分布式版本控制系统（没有之一）。</p>
 <p>随着代码量的越来越多m，相信你会喜欢它<br><a id="more"></a></p>
 <h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><ul>
@@ -333,6 +333,24 @@
 <h2 id="暂存区概念"><a href="#暂存区概念" class="headerlink" title="暂存区概念"></a>暂存区概念</h2><ul>
 <li>修改后未提交的区域</li>
 <li>提交后暂存区清空</li>
+<li>每次修改，如果不<code>add</code>到暂存区，那就不会加入到<code>commit</code>中。</li>
+</ul>
+<h2 id="修改和删除"><a href="#修改和删除" class="headerlink" title="修改和删除"></a>修改和删除</h2><p>###修改</p>
+<ul>
+<li><p>命令<code>git checkout -- readme.txt</code>意思就是，把<code>readme.txt</code>文件在工作区的修改全部撤销，这里有两种情况：</p>
+</li>
+<li><p>一种是<code>readme.txt</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+</li>
+<li><p>一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+</li>
+<li><p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</p>
+</li>
+<li><p>如果要抛弃缓存区的内容，用命令<code>git reset HEAD file</code></p>
+</li>
+</ul>
+<h3 id="删除："><a href="#删除：" class="headerlink" title="删除："></a>删除：</h3><ul>
+<li>命令<code>git rm</code>用于删除一个文件,修改后提交</li>
+<li>如果删错了，<code>git checkout --file</code>是用版本库里的版本替换工作区的版本</li>
 </ul>
 <p>##未完待续<br>在使用中有任何问题，欢迎反馈给我</p>
 
@@ -372,6 +390,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/19/zhaopin/" rel="prev" title="招聘季">
+                招聘季 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -439,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -492,7 +514,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GIT"><span class="nav-number">1.</span> <span class="nav-text">GIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">2.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暂存区概念"><span class="nav-number">3.</span> <span class="nav-text">暂存区概念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GIT"><span class="nav-number">1.</span> <span class="nav-text">GIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">2.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暂存区概念"><span class="nav-number">3.</span> <span class="nav-text">暂存区概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改和删除"><span class="nav-number">4.</span> <span class="nav-text">修改和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除："><span class="nav-number">4.1.</span> <span class="nav-text">删除：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
