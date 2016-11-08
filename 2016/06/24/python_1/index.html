@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="About," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -84,18 +84,16 @@
 
 
 
-<meta name="description" content="整理一下，关于JAVA环境配置方面不断更新">
+<meta name="description" content="python基础复习回顾python的基础系列第一部分（基础中的基础）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX_JAVA">
-<meta property="og:url" content="http://yoursite.com/2016/07/04/lingsui/index.html">
+<meta property="og:title" content="python基础部分">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/python_1/index.html">
 <meta property="og:site_name" content="Edward's blog">
-<meta property="og:description" content="整理一下，关于JAVA环境配置方面不断更新">
-<meta property="og:image" content="http://yoursite.com/images/2.png">
-<meta property="og:updated_time" content="2016-07-05T02:31:08.253Z">
+<meta property="og:description" content="python基础复习回顾python的基础系列第一部分（基础中的基础）">
+<meta property="og:updated_time" content="2016-11-08T11:23:24.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX_JAVA">
-<meta name="twitter:description" content="整理一下，关于JAVA环境配置方面不断更新">
-<meta name="twitter:image" content="http://yoursite.com/images/2.png">
+<meta name="twitter:title" content="python基础部分">
+<meta name="twitter:description" content="python基础复习回顾python的基础系列第一部分（基础中的基础）">
 
 
 
@@ -116,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/04/lingsui/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/24/python_1/"/>
 
-  <title> LINUX_JAVA | Edward's blog </title>
+  <title> python基础部分 | Edward's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +256,7 @@
             
             
               
-                LINUX_JAVA
+                python基础部分
               
             
           </h1>
@@ -270,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-04T08:47:21+08:00" content="2016-07-04">
-              2016-07-04
+            <time itemprop="dateCreated" datetime="2016-06-24T10:23:41+08:00" content="2016-06-24">
+              2016-06-24
             </time>
           </span>
 
@@ -298,25 +296,36 @@
       
 
       
-        <p><img src="/images/2.png" alt="Linux"></p>
-<h2 id="整理一下，关于JAVA环境配置方面"><a href="#整理一下，关于JAVA环境配置方面" class="headerlink" title="整理一下，关于JAVA环境配置方面"></a>整理一下，关于JAVA环境配置方面</h2><p>不断更新<br><a id="more"></a><br>java,ip</p>
-<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><ul>
-<li>解压JAVA<ul>
-<li>tar -zxvf *.gz</li>
-</ul>
-</li>
-<li><p>配置环境变量</p>
+        <h2 id="python基础复习"><a href="#python基础复习" class="headerlink" title="python基础复习"></a>python基础复习</h2><p>回顾python的基础系列第一部分（基础中的基础）</p>
+<a id="more"></a>
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><p>s = 0<br>for k in range(101):　　#1-100<br>　　s = s + k<br>print s</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>def add2(x):<br>　　return x+2<br>print add2(1)<br>def add2(x=0, y=0):<br>　　return [x+2, y+2]　　#返回列表<br>def add3(x, y):<br>　　return x+3, y+3 　　#双重返回<br>a,b = add3(1, 2)</p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>f = lambda x : x+2　　#定义函数f(x)= x+2<br>g = lambda x, y : x+y　　#定义函数g(x,y)= x+y, g(1,2)结果为3</p>
+<p>###数据结构</p>
 <ul>
-<li>1.修改/etc/profile文件<br> 末尾加入：<br> export JAVA_HOME=/usr/share/jdk1.8.0_91<br> export PATH=$JAVA_HOME/bin:$PATH<br> export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar<br> ·重新登录<br> ·注解<br>  a. 你要将 /usr/share/jdk1.8.0_91改为你的jdk安装目录<br>  b. linux下用冒号“:”来分隔路径<br>  c. $PATH / $CLASSPATH / $JAVA_HOME 是用来引用原来的环境变量的值<br>   在设置环境变量时特别要注意不能把原来的值给覆盖掉了，这是一种常见的错误。<br>  d. CLASSPATH中当前目录“.”不能丢,把当前目录丢掉也是常见的错误。<br>  e. export是把这三个变量导出为全局变量。<br>  f. 大小写必须严格区分。</li>
-<li><p>2.修改.bash_profile文件</p>
-<p> 这种方法更为安全，它可以把使用这些环境变量的权限控制到用户级别，<br> 如果你需要给某个用户权限使用这些环境变量，你只需要修改其个人用户主目录下的.bash_profile文件就可以了。<br> ·用文本编辑器打开用户目录下的.bash_profile文件<br> ·在.bash_profile文件末尾加入：</p>
-<p> export JAVA_HOME=/usr/share/jdk1.6.0_14<br> export PATH=$JAVA_HOME/bin:$PATH<br> export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
-<p>·重新登录  </p>
-</li>
+<li>a, b是列表</li>
+<li>列表函数cmp(a, b) len(a) max(a) min(a) sum(a) sorted(a)</li>
+<li>列表对象方法 a.append(1) a.count(1) a.extend([1,2]) a.index(1) a.insert(2,1) a.pop(1)</li>
 </ul>
-</li>
-<li>卸载JDK<br>·找到jdk安装目录的_uninst子目录<br>·在shell终端执行命令./uninstall.sh即可卸载jdk。<h2 id="有问题反馈"><a href="#有问题反馈" class="headerlink" title="有问题反馈"></a>有问题反馈</h2>在使用中有任何问题，欢迎反馈给我</li>
+<p>b = a　　# b是a的别名<br>b = a[:]    #数据复制</p>
+<h3 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h3><p>a = [1, 2, 3]<br>b = []<br>for i in a:<br>　　b.append(i+2)</p>
+<h3 id="等价于"><a href="#等价于" class="headerlink" title="等价于"></a>等价于</h3><p>a =[1, 2, 3]　　</p>
+<p>b =[i + 2 for i in a]</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>d = {‘today’ : 20, “tomorrow” : 30}　　 #创建</p>
+<p>d[‘today’]　　#访问</p>
+<h3 id="其他创建方法"><a href="#其他创建方法" class="headerlink" title="其他创建方法"></a>其他创建方法</h3><p>dict([‘today’, 20], [‘tomorrow’, 30])<br>dict.fromkeys([‘today’, ‘tomorrow’], 20)</p>
+<h3 id="集合-1"><a href="#集合-1" class="headerlink" title="集合"></a>集合</h3><p>s = {1, 2, 2, 4}<br>s = set([1,2,2,4])　　#自动去除多余的值</p>
+<h3 id="函数式编程-lambda-map-reduce-filter"><a href="#函数式编程-lambda-map-reduce-filter" class="headerlink" title="函数式编程 lambda, map, reduce, filter"></a>函数式编程 lambda, map, reduce, filter</h3><p>b = map(lambda x :x+2, a)<br>b = list(b);</p>
+<p>###reduce</p>
+<ul>
+<li>2.x中不需要，3.x中需要，因为map仅仅创建了一个待运行的命令容器，只有其他函数调用时才返回结果</li>
+<li>map命令将函数逐一运用到map列表的每个元素中，，最后返回一个数组，效率比for循环高一点</li>
+<li>reduce函数用于递归运算<br>###reduce(lambda x, y: x*y, range(1, n+1))</li>
+<li>filter 用于筛选列表中符合条件的元素<br>b = filter(lambda x :x &gt; 5 and x &lt;8, range(10))<br>b = list(b)　　# 同map</li>
 </ul>
+<h3 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h3><p>import math<br>math.sin(1)<br>import math as m<br>m.sin(1)<br>from math import exp as e<br>e(1)<br>sin(1)　　#出错<br>from math import * 　　#直接导入，大量导入会引起命名冲突，不建议<br>exp(1)<br>sin(1)</p>
+<h3 id="导入future特征（2-x）"><a href="#导入future特征（2-x）" class="headerlink" title="导入future特征（2.x）"></a>导入future特征（2.x）</h3><h5 id="将print变为函数形式，即用print-a-格式输出"><a href="#将print变为函数形式，即用print-a-格式输出" class="headerlink" title="将print变为函数形式，即用print(a)格式输出"></a>将print变为函数形式，即用print(a)格式输出</h5><p>from <strong>future</strong> import print_function</p>
+<h3 id="3-x中3-2-1-5-3-2-1-2-x中3-2-1"><a href="#3-x中3-2-1-5-3-2-1-2-x中3-2-1" class="headerlink" title="3.x中3/2=1.5, 3//2=1;2.x中3/2=1"></a>3.x中3/2=1.5, 3//2=1;2.x中3/2=1</h3><p>from <strong>future</strong> import division</p>
 
       
     </div>
@@ -338,7 +347,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/About/" rel="tag">#About</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -347,16 +356,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/24/Scrapy/" rel="next" title="Scrapy">
-                <i class="fa fa-chevron-left"></i> Scrapy
+              <a href="/2016/06/23/zhongwen/" rel="next" title="About MaHua">
+                <i class="fa fa-chevron-left"></i> About MaHua
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/05/ip/" rel="prev" title="IP地址及局域网设置">
-                IP地址及局域网设置 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/24/Scrapy/" rel="prev" title="Scrapy">
+                Scrapy <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -478,7 +487,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整理一下，关于JAVA环境配置方面"><span class="nav-number">1.</span> <span class="nav-text">整理一下，关于JAVA环境配置方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-number">2.</span> <span class="nav-text">java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有问题反馈"><span class="nav-number">3.</span> <span class="nav-text">有问题反馈</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#python基础复习"><span class="nav-number">1.</span> <span class="nav-text">python基础复习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-循环"><span class="nav-number">1.1.</span> <span class="nav-text">for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">1.2.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数"><span class="nav-number">1.3.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表解析"><span class="nav-number">1.4.</span> <span class="nav-text">列表解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#等价于"><span class="nav-number">1.5.</span> <span class="nav-text">等价于</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合"><span class="nav-number">1.6.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他创建方法"><span class="nav-number">1.7.</span> <span class="nav-text">其他创建方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合-1"><span class="nav-number">1.8.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程-lambda-map-reduce-filter"><span class="nav-number">1.9.</span> <span class="nav-text">函数式编程 lambda, map, reduce, filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入库"><span class="nav-number">1.10.</span> <span class="nav-text">导入库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入future特征（2-x）"><span class="nav-number">1.11.</span> <span class="nav-text">导入future特征（2.x）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#将print变为函数形式，即用print-a-格式输出"><span class="nav-number">1.11.0.1.</span> <span class="nav-text">将print变为函数形式，即用print(a)格式输出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-x中3-2-1-5-3-2-1-2-x中3-2-1"><span class="nav-number">1.12.</span> <span class="nav-text">3.x中3/2=1.5, 3//2=1;2.x中3/2=1</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
