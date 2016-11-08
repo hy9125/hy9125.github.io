@@ -87,10 +87,10 @@
 <meta name="description" content="python基础复习回顾python的基础系列第一部分（基础中的基础）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python基础部分">
-<meta property="og:url" content="http://yoursite.com/2016/06/24/python_1/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/python1/index.html">
 <meta property="og:site_name" content="Edward's blog">
 <meta property="og:description" content="python基础复习回顾python的基础系列第一部分（基础中的基础）">
-<meta property="og:updated_time" content="2016-11-08T11:23:24.276Z">
+<meta property="og:updated_time" content="2016-11-08T11:43:34.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python基础部分">
 <meta name="twitter:description" content="python基础复习回顾python的基础系列第一部分（基础中的基础）">
@@ -114,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/24/python_1/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/24/python1/"/>
 
   <title> python基础部分 | Edward's blog </title>
 </head>
@@ -320,10 +320,16 @@
 <ul>
 <li>2.x中不需要，3.x中需要，因为map仅仅创建了一个待运行的命令容器，只有其他函数调用时才返回结果</li>
 <li>map命令将函数逐一运用到map列表的每个元素中，，最后返回一个数组，效率比for循环高一点</li>
-<li>reduce函数用于递归运算<br>###reduce(lambda x, y: x*y, range(1, n+1))</li>
+<li>reduce函数用于递归运算  </li>
+</ul>
+<p>###reduce(lambda x, y: x*y, range(1, n+1))</p>
+<ul>
 <li>filter 用于筛选列表中符合条件的元素<br>b = filter(lambda x :x &gt; 5 and x &lt;8, range(10))<br>b = list(b)　　# 同map</li>
 </ul>
-<h3 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h3><p>import math<br>math.sin(1)<br>import math as m<br>m.sin(1)<br>from math import exp as e<br>e(1)<br>sin(1)　　#出错<br>from math import * 　　#直接导入，大量导入会引起命名冲突，不建议<br>exp(1)<br>sin(1)</p>
+<h3 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h3><p>import math<br>math.sin(1)  </p>
+<p>import math as m<br>m.sin(1)  </p>
+<p>from math import exp as e<br>e(1)<br>sin(1)　　#出错  </p>
+<p>from math import * 　　#直接导入，大量导入会引起命名冲突，不建议<br>exp(1)<br>sin(1)</p>
 <h3 id="导入future特征（2-x）"><a href="#导入future特征（2-x）" class="headerlink" title="导入future特征（2.x）"></a>导入future特征（2.x）</h3><h5 id="将print变为函数形式，即用print-a-格式输出"><a href="#将print变为函数形式，即用print-a-格式输出" class="headerlink" title="将print变为函数形式，即用print(a)格式输出"></a>将print变为函数形式，即用print(a)格式输出</h5><p>from <strong>future</strong> import print_function</p>
 <h3 id="3-x中3-2-1-5-3-2-1-2-x中3-2-1"><a href="#3-x中3-2-1-5-3-2-1-2-x中3-2-1" class="headerlink" title="3.x中3/2=1.5, 3//2=1;2.x中3/2=1"></a>3.x中3/2=1.5, 3//2=1;2.x中3/2=1</h3><p>from <strong>future</strong> import division</p>
 
@@ -434,7 +440,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
